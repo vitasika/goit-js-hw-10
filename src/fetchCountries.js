@@ -1,16 +1,18 @@
 // путь к API - эндпоинт, базовый URL, точка входа в API.
-const BASE_URL = 'https://restcountries.com/v3.1/name/';
-const requestParameters = 'name,capital,population,flags,languages';
+const BASE_URL = 'https://restcountries.com/v3.1/name';
+// заправшиваемые параметры от сервера.
+const requestParameters = 'fields=name,capital,population,flags,languages';
 
 function fetchCountries(name) {
-    return fetch(`${BASE_URL}${name}?fields=${requestParameters}`).then(response => response.json(),)    
+    return fetch(`${BASE_URL}/?${searchParams}`)
+        .then(response => response.json())
+        .catch(error => console.log(error));
 };
 
-
 // именованный экспорт ф-ции fetchCountries
-export default { fetchCountries };
+export { fetchCountries };
 
-[
+
 // // путь к API - эндпоинт, базовый URL, точка входа в API.
 // const BASE_URL = 'https://restcountries.com/v3.1'
 
@@ -32,7 +34,7 @@ export default { fetchCountries };
 // };
 // // именованный экспорт ф-ции fetchCountries
 // export { fetchCountries };
-]
+
 
 
 
